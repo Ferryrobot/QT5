@@ -158,7 +158,7 @@ class MainWindow(QWidget):
     def click_select_btn(self):
         print(self.switch)
         if self.switch != STOP:
-            QMessageBox.warning(self,"错误","正在执行或正在停止，请完成后操作")
+            QMessageBox.warning(self,"错误","正在执行或正在停止中，请完成后操作")
             return
         # 获取输入框内容
         input_text = self.select_input.text()
@@ -205,7 +205,7 @@ class MainWindow(QWidget):
     # 重新检测
     def click_reset(self):
         if self.switch != STOP:
-            QMessageBox.warning(self, "错误", "正在执行或证字啊停止中，请勿重复操作")
+            QMessageBox.warning(self, "错误", "正在执行或正在停止中，请勿重复操作")
             return
         # 获取需要重新初始化的行
         select_row = self.table.selectionModel().selectedRows()
@@ -229,7 +229,7 @@ class MainWindow(QWidget):
     # 次数清零
     def click_zero(self):
         if self.switch != STOP:
-            QMessageBox.warning(self, "错误", "正在执行或证字啊停止中，请勿重复操作")
+            QMessageBox.warning(self, "错误", "正在执行或正在停止中，请勿重复操作")
             return
         select_row = self.table.selectionModel().selectedRows()
         if not select_row:
@@ -244,7 +244,7 @@ class MainWindow(QWidget):
     # 删除选中项
     def click_del(self):
         if self.switch != STOP:
-            QMessageBox.warning(self, "错误", "正在执行或证字啊停止中，请勿重复操作")
+            QMessageBox.warning(self, "错误", "正在执行或正在停止中，请勿重复操作")
             return
         self.switch = RUNNING
         # 获取选中的行
@@ -283,7 +283,7 @@ class MainWindow(QWidget):
             clipboard.setText(select_item_list[0].text())
 
         if self.switch != STOP:
-            QMessageBox.warning(self, "错误", "正在执行或证字啊停止中，请勿重复操作")
+            QMessageBox.warning(self, "错误", "正在执行或正在停止中，请勿重复操作")
             return
         self.switch = RUNNING
 
@@ -313,7 +313,7 @@ class MainWindow(QWidget):
     # 绑定开始按钮
     def click_start(self):
         if self.switch != STOP:
-            QMessageBox.warning(self, "错误", "正在执行或证字啊停止中，请勿重复操作")
+            QMessageBox.warning(self, "错误", "正在执行或正在停止中，请勿重复操作")
             return
         self.switch = RUNNING
         # 创建线程，每一行为一个线程
@@ -351,7 +351,7 @@ class MainWindow(QWidget):
 
     def click_stop(self):
         if self.switch != RUNNING:
-            QMessageBox.warning(self, "错误", "程序已停止或正在停止中，请勿重复操作")
+            QMessageBox.warning(self, "错误", "正在执行或正在停止中，请勿重复操作")
             return
         self.switch =STOPPING
         SCHEDULER.stop()
